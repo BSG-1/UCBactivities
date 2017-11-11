@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="empty-div"></div>
+
+	<script>
+		var targetDiv = document.getElementbyID('empty-div');
+
+		targetDiv.innerHTML = "<p>Hello students!</p>";
+
+		var newDiv = document.createElement("div");
+
+		newDiv.innerHTML = "A pleasure to meet you!";
+
+		targetDiv.appendChild(newDiv);
+
+	</script>
+</body>
+</html>
