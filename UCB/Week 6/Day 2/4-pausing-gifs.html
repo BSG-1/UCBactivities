@@ -23,15 +23,22 @@
         // Use the .attr() method for this.
 
         // ============== FILL IN CODE HERE FOR STEP TWO =========================
-
-        // CODE GOES HERE
-
+        var state = $(this).attr("data-state");
         // =============================================
 
-        // STEP THREE: Check if the variable state is equal to 'still',
+        // STEP THREE:
+        if (state === 'still'){ //check if the variable state is equal to 'still'
+          $(this).attr("src", $(this).attr("data-animate"));
+          $(this).attr("data-state", "animate");        
+        }
+
         // then update the src attribute of this image to it's data-animate value,
         // and update the data-state attribute to 'animate'.
 
+        if (state === 'animate'){
+          $(this).attr("src", $(this).attr("data-still"));
+          $(this).attr("data-state", "still");
+        }
         // If state is equal to 'animate', then update the src attribute of this
         // image to it's data-still value and update the data-state attribute to 'still'
         // ============== FILL IN CODE HERE FOR STEP THREE =========================

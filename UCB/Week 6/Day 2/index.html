@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>NYT Program</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		
+		<!--Jumbotron with the title -->
+		<div class="jumbotron">
+		</div>
+
+		<!--Search Parameters-->
+		<div class="row">
+			<div class="panel panel-default">
+				<div class="panel panel-title" class="text-center">Search Parameters
+				</div>
+				
+
+				<div class="panel panel-body">
+					<div class="input-group">
+						
+						<!--Search Term-->
+						<label for="basic-url">Search Term:</label>
+						<div class="input-group">
+						  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+						</div>	
+
+						<!--Number of Records to Retrieve-->
+						<form>
+							<div class=“form-group” style="border = 5px solid black">
+							  <label for=“sel1"> Number of Records to Retrieve:</label>
+							  <select class=“form-control” id=“sel1">
+							    <option>1</option>
+							    <option>2</option>
+							    <option>3</option>
+							    <option>4</option>
+							  </select>
+							</div>
+						<form>
+
+						<!--Start Year-->
+						<label for="basic-url">Start Year (Optional):</label>
+						<div class="input-group">
+						  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+						</div>	
+
+						<!--End Year-->
+						<label for="basic-url">End Year (Optional):</label>
+						<div class="input-group">
+						  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+						</div>	
+					
+					</div>
+
+
+
+			<button class="btn btn-default" type="button" id="searchBtn">Search</button>
+			<button class="btn btn-default" type="button" id="clearResults">Clear Results</button>
+			</div>
+		</div>
+		
+		<!--Articles-->
+		<div class="row">
+			<div class="panel panel-default"">
+				<div class="panel panel-title">Top Articles</div>
+				<div class="panel panel-body">
+					
+				</div>
+			</div>
+		</div>
+	
+	</div>
+</body>
+</html>
