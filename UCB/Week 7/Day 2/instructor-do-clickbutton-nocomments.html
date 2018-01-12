@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <title>Click Button with Firebase!</title>
+
+    <!--Accessing firebase js -->
+    <script src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
+
+  </head>
+
+  <body>
+
+    <!--span to add in amount of times clicked/ new value updated-->
+    <h1>Ouch! You've clicked me <span id="click-value"></span> times!</h1>
+
+    <!-- Button to click-->
+    <button id="click-button">Click Me!!!!</button>
+
+    <!--Link for jQuery database-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!--config variable with parameters from firebase ================ -->
+    <script>
+
+    var config = {
+      apiKey: "AIzaSyCQ3XIMZuUJKKTn1xfoD7CC2yLGznX6W_I",
+      authDomain: "thisisatest-6901b.firebaseapp.com",
+      databaseURL: "https://thisisatest-6901b.firebaseio.com",
+      projectId: "thisisatest-6901b",
+      storageBucket: "thisisatest-6901b.appspot.com",
+      messagingSenderId: "444807869836"
+    };
+
+    firebase.initializeApp(config);
+
+    // VARIABLES
+    // --------------------------------------------------------------------------------
+
+    var database = firebase.database();
+    var clickCounter = 0;
+
+    // FUNCTIONS + EVENTS
+    // --------------------------------------------------------------------------------
+
+    $("#click-button").on("click", function() {
+      clickCounter++;
+      database.ref().set({
+        clickCount: clickCounter
+      });
+    });
+
+    // MAIN PROCESS + INITIAL CODE
+    // data mining - any change in the value will call this call-back 
+    // function (gets the numbers into the dom and onto the screen from other clicks from other browsers, if any.)
+
+    database.ref().on("value", function(snapshot) { //snapshot is the argument 
+      console.log(snapshot.val()); //takes the value of snapshot 
+      $("#click-value").text(snapshot.val().clickCount);
+      clickCounter = snapshot.val().clickCount;
+    }, function(errorObject) { //run when lose connectivitiy
+      console.log("The read failed: " + errorObject.code);
+    });
+
+    </script>
+
+  </body>
+
+</html>
