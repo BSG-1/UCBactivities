@@ -1,19 +1,31 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
-from django.http import HttpResponse
+from django.http import Http404, HttpResponse
+from django.urls import reverse
+
+from django.views.generic import DetailView, ListView 
 
 from .models import User
 
-def index(request):
 
-    context = { 'name' : 'Adonis', 'users' : User.objects.all() }
+class UserListView(ListView):
+    model = Usertemplate_name = 'users/index.html'
 
-    return render(request, 'users/index.html', context)
+    def get_context_data(self, **kwargs):
+        context = super(UserListView, self).get_context_data
+        (**kwargs)
+
+        context['name'] = 'Adonis'
+
+        return context
+
 
 # passing in the user number
-def detail(request,user_id): 
-    
-    context =  { 'user' : User.objects.get(id=user_id) }
+def detail(request, user_id):
+    try:
+        context =  { 'user' : User.objects.get(id=user_id) }
+    except User.DoesNotExist:
+        raise Http404('User does not exist')
 
     return render(request, 'users/detail.html', context)
 
