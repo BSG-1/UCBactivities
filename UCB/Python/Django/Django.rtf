@@ -14,8 +14,18 @@
 	\'93users.apps.UsersConfig\'94\
 \
 \
-\'93source env/bin/activate\'94\
+-\'93source env/bin/activate\'94\
 	runs virtual environment (env) and then change directory to come into app\
 \
-\'93python manage.py runserver\'94\
-	runs the server and allows you to go to localhost}
+-\'93python manage.py runserver\'94\
+	runs the server and allows you to go to localhost\
+\
+-\'93Virtualenv -p `which python3` env\'94\
+	runs the env straight from the source folder (folder \'93Django\'94 in this case)\
+\
+\
+-Django uses models to talk to the database\
+	-sql lite comes with python, dont have to install or talk to the db at all\
+\
+- \'93__str__\'94 converts object to a string that we can view (python manage.py shell)\
+-Django models have an }
