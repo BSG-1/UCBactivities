@@ -10,9 +10,10 @@ def index(request):
 
     return render(request, 'users/index.html', context)
 
-def detail(request):
-
-    context =  { 'user' : User.objects.get(first_name='Jane') }
+# passing in the user number
+def detail(request,user_id): 
+    
+    context =  { 'user' : User.objects.get(id=user_id) }
 
     return render(request, 'users/detail.html', context)
 
@@ -21,3 +22,5 @@ def add(request):
     context = { 'header' : 'This is the add view!'}
 
     return render(request, 'users/add.html', context)
+
+# THIS IS YOUR CONTROLLER

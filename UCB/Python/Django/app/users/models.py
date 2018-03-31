@@ -13,5 +13,5 @@ class User(models.Model):
 
     def __str__(self):
         """ Sensible string representation of a user."""
-        return "{0} {1} | {2}".format(self.first_name, self.last_name, 
+        return "{0} | {1} {2} | {3}".format(self.id, self.first_name, self.last_name, 
                 self.email)
