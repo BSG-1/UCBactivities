@@ -1,31 +1,23 @@
 from django.shortcuts import render
+
 from django.http import HttpResponse
 
-# Create your views here.
+from .models import User
+
 def index(request):
-    #do a bunch of work here
-    # response= "<h1>Hello World</h1>"
 
-    #return the response
-    return render(request, 'users/home.html', {'name': 'Sushi'})
+    context = { 'name' : 'Adonis', 'users' : User.objects.all() }
 
-# def index(request):
-#     #do a bunch of work here
-#     # response= "<h1>Hello index</h1>"
-
-#     #return the response
-#     return HttpResponse(response)
+    return render(request, 'users/index.html', context)
 
 def detail(request):
-    #do a bunch of work here
-    response= "<h1>Hello detail</h1>"
 
-    #return the response
-    return HttpResponse(response)
+    context =  { 'user' : User.objects.get(first_name='Jane') }
+
+    return render(request, 'users/detail.html', context)
 
 def add(request):
-    #do a bunch of work here
-    response= "<h1>Hello add</h1>"
 
-    #return the response
-    return HttpResponse(response)
+    context = { 'header' : 'This is the add view!'}
+
+    return render(request, 'users/add.html', context)
